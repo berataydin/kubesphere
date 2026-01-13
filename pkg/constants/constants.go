@@ -1,4 +1,5 @@
 /*
+ * Copyright 2024 the KubeSphere Authors.
  * Please refer to the LICENSE file in the root directory of the project.
  * https://github.com/kubesphere/kubesphere/blob/master/LICENSE
  */
@@ -33,6 +34,9 @@ const (
 	SecretTypeGenericPlatformConfig corev1.SecretType = KubeSphereConfigGroup + "/generic-platform-config"
 	GenericPlatformConfigNameFmt                      = "io.kubesphere.config.platformconfig.%s"
 	GenericPlatformConfigFileName                     = "configuration.yaml"
+
+	SecretTypeClusterConnectionConfig corev1.SecretType = KubeSphereConfigGroup + "/cluster-connection-config"
+	ClusterConnectionConfigFileName                     = "configuration.yaml"
 )
 
 var (

@@ -1,4 +1,5 @@
 /*
+ * Copyright 2024 the KubeSphere Authors.
  * Please refer to the LICENSE file in the root directory of the project.
  * https://github.com/kubesphere/kubesphere/blob/master/LICENSE
  */
@@ -50,6 +51,18 @@ func (h *handler) AddToContainer(c *restful.Container) error {
 			Notes("Allows the user to update the theme configuration settings.").
 			Operation("updateThemeConfiguration").
 			To(h.updateThemeConfiguration))
+
+		webservice.Route(webservice.GET("/clusterconnectionconfigurations").
+			Doc("Retrieve all configurations for cluster connection").
+			Notes("Provides information about all cluster connection plugins").
+			Operation("listClusterConnectionConfiguration").
+			To(h.listClusterConnectionConfiguration))
+
+		webservice.Route(webservice.GET("/clusterconnectionconfigurations/{config}").
+			Doc("Retrieve the configuration for cluster connection").
+			Notes("Provides information about the cluster connection plugin").
+			Operation("getClusterConnectionConfiguration").
+			To(h.getClusterConnectionConfiguration))
 
 		webservice.Route(webservice.POST("/platformconfigs").
 			Doc("Create a new platform configuration").

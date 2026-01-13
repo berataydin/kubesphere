@@ -1,4 +1,5 @@
 /*
+ * Copyright 2024 the KubeSphere Authors.
  * Please refer to the LICENSE file in the root directory of the project.
  * https://github.com/kubesphere/kubesphere/blob/master/LICENSE
  */
@@ -9,6 +10,7 @@ import (
 	"context"
 	"encoding/base64"
 	"encoding/json"
+	"errors"
 	"fmt"
 	"strings"
 
@@ -84,7 +86,7 @@ func (c *registryGetter) VerifyRegistryCredential(credential api.RegistryCredent
 	if resp.Status == loginSuccess {
 		return nil
 	} else {
-		return fmt.Errorf(resp.Status)
+		return errors.New(resp.Status)
 	}
 }
 

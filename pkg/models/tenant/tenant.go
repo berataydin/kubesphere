@@ -1,4 +1,5 @@
 /*
+ * Copyright 2024 the KubeSphere Authors.
  * Please refer to the LICENSE file in the root directory of the project.
  * https://github.com/kubesphere/kubesphere/blob/master/LICENSE
  */
@@ -674,7 +675,7 @@ func (t *tenantOperator) checkWorkspaceTemplatePermission(user user.Info, worksp
 		return err
 	}
 	if authorize != authorizer.DecisionAllow {
-		return errors.NewForbidden(tenantv1beta1.Resource(tenantv1beta1.ResourcePluralWorkspaceTemplate), workspace, fmt.Errorf(reason))
+		return errors.NewForbidden(tenantv1beta1.Resource(tenantv1beta1.ResourcePluralWorkspaceTemplate), workspace, fmt.Errorf("reason: %s", reason))
 	}
 	return nil
 }

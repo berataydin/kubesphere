@@ -1,4 +1,5 @@
 /*
+ * Copyright 2024 the KubeSphere Authors.
  * Please refer to the LICENSE file in the root directory of the project.
  * https://github.com/kubesphere/kubesphere/blob/master/LICENSE
  */
@@ -76,7 +77,7 @@ func BuildKubeconfigFromRestConfig(config *rest.Config) ([]byte, error) {
 	}
 
 	if config.BearerTokenFile != "" {
-		newToken, _ := os.ReadFile(config.BearerToken)
+		newToken, _ := os.ReadFile(config.BearerTokenFile)
 		if len(newToken) > 0 {
 			apiConfig.AuthInfos["kubernetes-admin"].Token = string(newToken)
 		}
